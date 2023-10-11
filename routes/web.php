@@ -33,7 +33,8 @@ Route::get('/', function () {
 Route::get('/contact',[FirstController::class, 'contact'])->name('contact.us');
 Route::get('/about',[FirstController::class, 'about'])->name('about.us');
 
-
+Route::post('/student/store',[FirstController::class, 'studentstore'])->name('student.store');
+Route::post('/another/store',[FirstController::class, 'aboutstore'])->name('about.store');
 
 // this is another process
 // Route::view('/about','about');

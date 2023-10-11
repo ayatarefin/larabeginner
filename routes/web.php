@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FirstController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Symfony\Component\HttpKernel\KernelInterface;
@@ -21,16 +22,25 @@ Route::get('/', function () {
 
 // ->name() method is for privacy and good practice and md5 is hash of a string
 
-Route::get(md5('/about'), function () {
-    return view('about');
-})->name('about.us');
+// Route::get(md5('/about'), function () {
+//     return view('about');
+// })->name('about.us');
+
+
+
+// this part is main how laravel format followed using controller
+
+Route::get('/contact',[FirstController::class, 'contact'])->name('contact.us');
+Route::get('/about',[FirstController::class, 'about'])->name('about.us');
+
+
 
 // this is another process
 // Route::view('/about','about');
 
-Route::get('/contactdidjdjdidjdi', function () {
-    return view('contact');
-})->name('contact.us');
+// Route::get('/contactdidjdjdidjdi', function () {
+//     return view('contact');
+// })->name('contact.us');
 
 
 // Route parameter example
@@ -45,9 +55,11 @@ Route::get('/search/{roll}', function($roll){
 // in ->middleware('') indicates the registered name of KernelInterface
 // steps 4 give the condition you want to work in the middleware.php
 
-Route::get('/country', function () {
-    return view('country');
-})->middleware('country');
+// Route::get('/country', function () {
+//     return view('country');
+// })->middleware('country');
+
+Route::get('/country',[FirstController::class, 'country'])->name('about.us')->middleware('country');;
 
 
 

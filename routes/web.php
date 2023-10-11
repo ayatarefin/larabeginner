@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Symfony\Component\HttpKernel\KernelInterface;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,15 +19,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// Route::get('/about', function () {
-//     return view('about');
-// });
-// this is another process
-Route::view('/about','about');
+// ->name() method is for privacy and good practice and md5 is hash of a string
 
-Route::get('/contact', function () {
+Route::get(md5('/about'), function () {
+    return view('about');
+})->name('about.us');
+
+// this is another process
+// Route::view('/about','about');
+
+Route::get('/contactdidjdjdidjdi', function () {
     return view('contact');
-});
+})->name('contact.us');
 
 
 // Route parameter example
@@ -34,6 +38,16 @@ Route::get('/contact', function () {
 Route::get('/search/{roll}', function($roll){
     return ("his roll is $roll");
 });
+
+// steps 1 first create middleware.php
+// steps 2 register that php file in kernel.php of http
+// steps 3 do the routes process, view process
+// in ->middleware('') indicates the registered name of KernelInterface
+// steps 4 give the condition you want to work in the middleware.php
+
+Route::get('/country', function () {
+    return view('country');
+})->middleware('country');
 
 
 

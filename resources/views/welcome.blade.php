@@ -30,8 +30,14 @@
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
             <h1>This is my First Page</h1>
             <ul class="list">
-                <li class="list-item"><a href="{{url('about')}}">about</a></li>
-                <li class="list-item"><a href="{{url('contact')}}">contact</a></li>
+                {{-- if you dont want security use url in href --}}
+                {{-- <li class="list-item"><a href="{{url('about')}}">about</a></li>
+                <li class="list-item"><a href="{{url('contact')}}">contact</a></li> --}}
+
+                {{-- for security purpose use route --}}
+
+                <li class="list-item"><a href="{{route('about.us')}}">about</a></li>
+                <li class="list-item"><a href="{{route('contact.us')}}">contact</a></li>
             </ul>
             </div>
         </div>

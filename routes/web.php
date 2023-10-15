@@ -33,6 +33,16 @@ Route::get('/', function () {
 Route::get('/about',[FirstController::class, 'about'])->name('about.us');
 Route::get('/contact',[FirstController::class, 'contact'])->name('contact.us');
 Route::post('/store/contact',[FirstController::class, 'store'])->name('store.contact');
+
+Route::get('/test',function(Request $request){
+    $logfile=file(storage_path().'/logs/contact.log');
+    $collection=[];
+    foreach($logfile as $line_number => $line){
+        $collection[]=array('line' =>$line_number, 'content' =>htmlspecialchars($line));
+
+    }
+    dd($collection);
+});
 // this is another process
 // Route::view('/about','about');
 

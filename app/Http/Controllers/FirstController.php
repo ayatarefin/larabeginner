@@ -26,7 +26,12 @@ class FirstController extends Controller
             'email' =>'required|max:80',
             'password' => 'required|min:6|max:12',
         ]);
-        dd($request->all());
+        //insert data in database
+        //insert data by query
+        //also store the record in log file
+
+        \Log::channel('contactstore')->info('the contact form submitted by'.rand(1,20));
+        return redirect()->back();
     }
 
 }

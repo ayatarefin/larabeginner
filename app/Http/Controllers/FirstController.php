@@ -19,13 +19,13 @@ class FirstController extends Controller
         return view('country');
     }
 
-    public function studentstore(Request $request)
+    public function store(Request $request)
     {
-        dd($request->all());
-    }
-
-    public function aboutstore(Request $request)
-    {
+        $validated = $request->validate([
+            'name' => 'required|max:55',
+            'email' =>'required|max:80',
+            'password' => 'required|min:6|max:12',
+        ]);
         dd($request->all());
     }
 

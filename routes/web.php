@@ -30,12 +30,9 @@ Route::get('/', function () {
 
 // this part is main how laravel format followed using controller
 
-Route::get('/contact',[FirstController::class, 'contact'])->name('contact.us');
 Route::get('/about',[FirstController::class, 'about'])->name('about.us');
-
-Route::post('/student/store',[FirstController::class, 'studentstore'])->name('student.store');
-Route::post('/another/store',[FirstController::class, 'aboutstore'])->name('about.store');
-
+Route::get('/contact',[FirstController::class, 'contact'])->name('contact.us');
+Route::post('/store/contact',[FirstController::class, 'store'])->name('store.contact');
 // this is another process
 // Route::view('/about','about');
 
@@ -60,7 +57,7 @@ Route::get('/search/{roll}', function($roll){
 //     return view('country');
 // })->middleware('country');
 
-Route::get('/country',[FirstController::class, 'country'])->name('about.us')->middleware('country');;
+Route::get('/country',[FirstController::class, 'country'])->name('country.us')->middleware('country');;
 
 
 
